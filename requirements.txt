@@ -1,0 +1,8 @@
+numpy
+torch
+torchvision
+python-dotenv
+seaborn
+matplotlib
+tqdm
+dotenv
