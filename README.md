@@ -56,7 +56,7 @@ Flow-based models learn an invertible transformation between the data distributi
 
 - model: `flow`
 - modes: `train` or `inference`
-- submodels: `realnvp`, `glow`
+- submodels: `realnvp`
 
 **Original**
 
@@ -66,15 +66,10 @@ Flow-based models learn an invertible transformation between the data distributi
 
 <img src="images/flow_realnvp_digit.png" width="250">
 
-**Glow Model Result**
-
-<img src="images/flow_glow_digit.png" width="250">
-
 
 #### References
 - [Density Estimation using Real NVP](https://arxiv.org/pdf/1605.08803.pdf)
 - [Learning Discrete Distributions by Dequantization](https://arxiv.org/pdf/2001.11235)
-- [Glow: Generative Flow with Invertible 1x1 Convolutions](https://arxiv.org/pdf/1807.03039v2.pdf)
 
 ### Generative Adversarial Networks (GAN)
 

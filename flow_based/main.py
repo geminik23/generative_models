@@ -29,7 +29,7 @@ def get_filename_with_timestamp(prefix:str):
 def main():
     parser = argparse.ArgumentParser(description='Flow-based Generative Model')
     parser.add_argument('mode', choices=['train', 'inference'], help='Choose mode: train or inference')
-    parser.add_argument('--model', type=str, default='realnvp', choices=['realnvp', 'glow'], help='Select the model to use (default: realnvp)')
+    parser.add_argument('--model', type=str, default='realnvp', choices=['realnvp'], help='Select the model to use (default: realnvp)')
     parser.add_argument('--save_file', type=str, default='model', help='File name to save the model. {} is for epoch count(default: model)')
     parser.add_argument('--load_file', type=str, default='model', help='File name to load the model (default: model)')
     parser.add_argument('--plot_interval', type=int, default=-1, help='During training, plot the generated image every {int} epochs. If value is negative, it will be ignored (default: -1)')
@@ -76,14 +76,11 @@ def main():
     val_loader = DataLoader(val_dataset, batch_size=BATCH_SIZE) 
 
     # Model
-    if args.model == 'realnvp':
-        LEARNING_RATE = 1e-3
-        model = RealNVP(LATENT_DIM, HIDDEN_DIM, N_BLOCKS)
-    else: # for pixelcnn
-        # N_FILTERS = 128
-        # LEARNING_RATE = 5e-4
-        # model = PixelCNN(IMG_SIZE, n_filters=N_FILTERS, residual_blocks=5, kernel_size=KERNEL_SIZE, pixel_levels=PIXEL_LEVELS).to(device)
-        model = RealNVP(LATENT_DIM, HIDDEN_DIM, N_BLOCKS)
+    # if args.model == 'realnvp':
+    LEARNING_RATE = 1e-3
+    model = RealNVP(LATENT_DIM, HIDDEN_DIM, N_BLOCKS)
+    # else: 
+    #     model = RealNVP(LATENT_DIM, HIDDEN_DIM, N_BLOCKS)
 
     if args.mode == 'train':
         args.save_file = args.save_file + '_{}.pt'
